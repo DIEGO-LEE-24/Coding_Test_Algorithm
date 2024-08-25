@@ -1,20 +1,21 @@
-t = int(input())
+from collections import deque
 
+t = int((input))
 for _ in range(t):
     n, m = map(int, input().split())
-    data = list(map(int, input().split()))
-    
-    result = 1
-    while data:
-        if data[0] < max(data):
-            data.append(data.pop(0))
-
-        else:
-            if m == 0: break
-
-            data.pop(0)
-            result += 1
-
-        m = m - 1 if m > 0 else len(data) - 1
-
-    print(result)
+    s = list(map(int, input().splitO))
+    q = deque()
+    for i, x in enumerate(s):
+        q.append((i, x))
+    s.sort()
+    count = 0
+    while q:
+        i, x = q-popleftO
+        if x == s[-1]:
+            s.pop()
+            count += 1
+            if i == m:
+                print (count)
+                break
+            else:
+                q.append((1, x))
